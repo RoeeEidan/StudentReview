@@ -1,0 +1,118 @@
+
+.homePageHero{
+    width: 100%;
+    height: auto;
+}
+
+.homePageBody{
+    min-height: 1328px;
+    background-color: #f6f6f6;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
+
+
+.homeResultWrapper{
+    float: left;
+    width: 73.9%;
+    padding-left: 12px;
+    padding-right: 12px;
+    -webkit-flex: 4;
+    flex: 4;
+}
+
+.topSearchBar{
+    min-height: 82px;
+    width: 100%;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
+
+
+.topRatedUnivercitiesText{
+    font-size: 22px;
+    font-weight: bold;
+    color: #4a4a4a;
+    padding: 20px 27.5px 0px 9.5px;
+    margin-top: 4px;
+    float: left;
+}
+
+.searchUniversity{
+    width: 100%;
+    border-radius: 100px;
+    background-color: #ffffff;
+    border: solid 1px #dbdbdb;
+    padding: 6px 0 6px 25px;
+    font-size: 18px;
+    color: #9b9b9b;
+    min-width: 228px;
+
+    background-image: url('../../images/search.svg');
+    background-position: 93% 5px;
+    background-repeat: no-repeat;
+}
+.searchUniversity:focus {outline:0;}
+
+.sortByWrapper{
+    float: right;
+    font-size: 18px;
+    color: #9b9b9b;
+    min-height: 26px;;
+    padding: 30px 12.5px 20px 0;
+    display: flex;
+    -webkit-flex: 3.393;
+    flex: 3.393;
+
+}
+
+.sortByTextButtons{
+    margin: 2px 15px;
+}
+.sortByTextButtons:hover{
+    cursor: pointer;
+}
+
+.sortByText{
+    padding: 2px 5.5px 2px 0;
+}
+
+.focusedSortBy{
+    max-height: 22px;
+    margin: 0 3px;
+    padding: 2px 13.5px 4px 15.5px;
+    border-radius: 5px;
+    border: solid 1px #4a4a4a;
+    font-weight: bold;
+    color: #4a4a4a;
+}
+.focusedSortBy:hover{
+    cursor: pointer;
+}
+
+.universityCardRatingWrapper{
+    display: inline-block;
+}
+
+
+.homePageSearchInput{
+    display: inline-block;
+    margin: 25px 0 22px 0;
+    flex-grow: 1;
+    padding-right: 59px;
+    max-width: 400px;
+}
+
+
+.searchIcon{
+    margin-top: 30px;
+    display: inline-block;
+    position: relative;
+    top: 4px;
+    right: 37px;
+}
+

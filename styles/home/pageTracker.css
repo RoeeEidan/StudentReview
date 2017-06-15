@@ -1,0 +1,74 @@
+.pageTrackerWrapper{
+    text-align: right;
+    height: 34px;
+    padding: 37px 3px 39px 0; 
+}
+
+
+.pageTrackerText{
+    display: inline-block;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: left;
+    color: #4a4a4a;  
+    padding-left: 19px; 
+    padding-right: 13px; 
+}
+
+
+.pageTrackerNumbers{
+    display: inline-block;    
+    padding: 0 18px;
+}
+
+.pageTrackerArrowBox{
+    display: inline-block; 
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    border: solid 1px #e7e7e7;  
+    padding: 7px;
+}
+.pageTrackerArrowBox:hover{
+    cursor: pointer;
+}
+
+.pageTrackerSingleNumber{
+    display: inline-block;
+    font-size: 22px;
+    font-weight: bold;
+    color: #4a4a4a;
+    width: 18.77px;
+    margin: 0 10px;
+}
+.pageTrackerSingleNumber:hover{
+    cursor: pointer;
+}
+
+.threeDots{
+    display: inline-block;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: left;
+    color: #4a4a4a;
+    padding-right: 2px;
+}
+
+.pageTrackerCurrnetPage{
+    display: inline-block; 
+    width: 34px;
+    height: 26px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    border: solid 1px #e7e7e7;  
+    padding: 4px 0;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: #4a4a4a;
+    margin: 0 5px;
+}
+.pageTrackerCurrnetPage:hover{
+    cursor: pointer;
+}
