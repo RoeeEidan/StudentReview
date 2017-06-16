@@ -1,0 +1,98 @@
+.mobileSingleCardWrapper{
+    height: 125px;
+    max-width: 100%;
+    border-radius: 1.2px;
+    background-color: #ffffff;
+    border: solid 0.5px #dedede;
+    margin: 8px 7px;
+}
+
+.mobileRatingCircleWrapper{
+    float: left;
+    max-height: 100%;
+    padding: 16px 20px 0 17.4px;
+    display: inline-block;
+}
+
+.mobileRatingCircle{
+    font-size: 14.6px;
+    font-weight: bold;
+    text-align: center;
+    color: #ffffff;
+    width: 43px;
+    height: 30.5px;
+    border-radius: 50%;
+    background-color: #73e53e;
+    display: inline-block;
+    padding-top: 12.5px;
+}
+
+.mobileUniversityNameText{
+    font-size: 14px;
+    font-weight: bold;
+    color: #0789f4;
+}
+
+.mobileUniversityNameWrapper{
+    display: inline-block;
+    padding: 10px 0 6px 0;
+}
+
+.mobileUniversityLocationWrapper{
+    padding-bottom: 7px;
+}
+
+.mobileUniversityLocationText{
+    font-size: 12px;
+    color: #9b9b9b;
+}
+
+.mobileUniversityNumberOfReviewsText{
+    font-size: 12px;
+    font-weight: bold;
+    color: #4a4a4a;
+}
+
+.mobilePriceAndCompanyRatingWrapper{
+    padding: 9px 0 0 81px
+}
+
+.mobileCardPriceWrapper{
+    display: inline-block;
+}
+
+.mobileCardPriceText{
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    color: #4a4a4a;
+    padding-bottom: 1px;
+}
+
+.mobileCardPriceDollars{
+    font-size: 14px;
+    font-weight: bold;
+    color: #73e53e;
+}
+
+.mobileCardCompanyRatingWrapper{
+    display: inline-block;
+    float: right;
+}
+
+.mobileCardCompanyRatingText{
+    padding-right: 38.45px;
+    padding-bottom: 1.5px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #4a4a4a;
+    float: right;
+}
+
+.mobileCardStar{
+    display: inline-block;
+}
+
+.mobileStartsWrapper{
+    display: inline-block;
+}

@@ -42,7 +42,7 @@
     -moz-appearance: none;
 
     background-image: url('../../images/dropDownArrow.svg');
-    background-position: 244px 13px;
+    background-position: 92% 13px;
     background-repeat: no-repeat;
 
 }
@@ -121,7 +121,8 @@
     padding: 4px 0 5px 10px;
     font-size: 16px;
     color: #4a4a4a;
-    width: 118px;
+    min-width: 106px;
+    width: 42.6%;
     min-height: 19px;
     border-radius: 3px;
     background-color: #ffffff;

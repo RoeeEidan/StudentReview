@@ -1,4 +1,13 @@
 
+body{
+    height: auto;
+}
+
+#root{
+    background-color: #f5f5f5;
+    min-width: 300px;
+}
+
 .homePageHero{
     width: 100%;
     height: auto;
@@ -38,7 +47,7 @@
     font-weight: bold;
     color: #4a4a4a;
     padding: 20px 27.5px 0px 9.5px;
-    margin-top: 4px;
+    margin-top: 10px;
     float: left;
 }
 
@@ -101,7 +110,7 @@
 
 .homePageSearchInput{
     display: inline-block;
-    margin: 25px 0 22px 0;
+    margin: 28px 0 22px 0;
     flex-grow: 1;
     padding-right: 59px;
     max-width: 400px;

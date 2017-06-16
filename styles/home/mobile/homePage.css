@@ -1,0 +1,47 @@
+.blur{
+    overflow: hidden;
+    opacity: 0.49;
+    filter: blur(2px);
+    background-color: #000000;
+}
+
+
+body{
+    height: auto;
+    
+}
+
+.mobileBodyWrapper{
+    padding: 0 7px;
+    width: auto;
+}
+
+.mobileOpenApplyFiltersWrapper{
+    max-width: 100%;
+    background-color: white;    
+}
+
+.mobileInnerSearchBoxWrapper{
+    box-shadow: 0px 1px 15px;
+    position: absolute;
+    top: 48px;
+    left: 10px;
+    right: 10px;
+    padding: 18px;
+    background-color: white;
+}
+
+.mobileRemoveSearchBox{
+    text-align: right;
+}
+
+.mobileSearchBoxTitles{
+    font-size: 14px;
+    padding-left: 9px;
+}
+
+.mobileSearchBoxSelectWrapper{
+    padding-right: 12px;
+    padding-top: 13px;
+    font-size: 14px;
+}

@@ -26,7 +26,7 @@
     height: 26px; /* 82 - ( 28 + 29 ) dicress the padding*/
     margin: 25px;
     border-radius: 50%;
-    background-color: #7ed321;
+    background-color: #73e53e;
     text-align: center;
     font-size: 24px;
     color: #ffffff;
@@ -48,7 +48,7 @@
     padding-top: 25px;
     font-size: 22px;
     font-weight: bold;
-    color: #118df0;
+    color: #0789f4;
 }
 .universityNameInCardSpan:hover{
     cursor: pointer;
@@ -79,7 +79,7 @@
     font-size: 16px;
     font-weight: bold;
     letter-spacing: 6.6px;
-    color: #7ed321;
+    color: #73e53e;
 }
 
 .universityPriceWrapper{

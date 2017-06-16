@@ -10,8 +10,8 @@
 
     {
         universities:[ University Objects ],
-        locations: [],
-        majors: [],
+        locations: [],  ?? 
+        majors: [],  ??
     }
 
     Each University Object
@@ -28,10 +28,11 @@
 -->
 
 
-
 <html>
 
 <head>
+    <!-- This lets the page be displayed as a Mobile as well-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 
     <!--Including EJS-->
     <script type="text/javascript" src="../ejs.min.js"></script>
@@ -43,13 +44,14 @@
     <script type="text/javascript" src="../functions/home/methods.js"></script>
     <!-- The Object is Called "_" -->
 
+
     <!-- Font Used For Unevirsity Logo-->
     <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash" rel="stylesheet">
 
     <!-- Font Used For All The Web-Site -->
     <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 
-    <!-- CSS Files -->
+    <!-- CSS Desktop Files -->
     <link rel="stylesheet" type="text/css" href="../styles/home/homePage.css">
     <link rel="stylesheet" type="text/css" href="../styles/home/navBar.css">
     <link rel="stylesheet" type="text/css" href="../styles/home/footer.css">
@@ -57,37 +59,342 @@
     <link rel="stylesheet" type="text/css" href="../styles/home/pageTracker.css">
     <link rel="stylesheet" type="text/css" href="../styles/home/searchBox.css">
 
-
-
+    <!-- CSS Mobile Files -->
+    <link rel="stylesheet" type="text/css" href="../styles/home/mobile/homePage.css">
+    <link rel="stylesheet" type="text/css" href="../styles/home/mobile/navBar.css">
+    <link rel="stylesheet" type="text/css" href="../styles/home/mobile/searchBar.css">
+    <link rel="stylesheet" type="text/css" href="../styles/home/mobile/universityCard.css">
+    <link rel="stylesheet" type="text/css" href="../styles/home/mobile/pageTrackerBar.css">
+    <link rel="stylesheet" type="text/css" href="../styles/home/mobile/footer.css">
+    
     <!--  TEMPLATES START  -->
 
+    <!-- MOBILE Start  -->
 
-    <!-- Nav Bar Start -->
-    <script id='navBarTemplate' type="text/template">
-        <div class='navBar'>
-            <div class='universityLogo button'>
+        <!-- Mobile Structur Start-->
+    <script id='homeMobileTemplate' type="text/template">
+        <div id='mobileNavBarDiv'>
+            NAV-BAR TEMPLATE
+        </div>
+           
+        <div id='blur'>
+            <div>
+                <img class='homePageHero' src="../images/homeHero.svg" alt="Univercity">
+            </div>
+            <div class="mobileBodyWrapper">
+                <div class="mobileSearchAndFiltersWrapper flex-container">
+                    <div class="mobileSearchInputWrapper flex-item">
+                        <input type="text" class="mobileSearchUniversity" value='Search University' id='searchInput'>
+                    </div>
+                    <div class="mobileApplyFilters flex-item">
+                        <span class="mobileApplyFiltersText" id='mobileApplyFilters'>
+                            Apply Filters
+                        </span>
+
+                    </div>
+                </div>
+                <div class="mobileTopRatedAndSortByWrapper">
+                    <span class="mobileTopRatedUniversitiesText">
+                        Top rated Universities  
+                    </span>
+                    <span class="mobileSortByText">
+                        Sort By 
+                    </span> 
+                    <span class="mobileSortByChosenText">
+                        <%= myState.getSortBy() %>
+                    </span>    
+                </div> 
+            </div>
+            <div id="mobileListOfUniversitiesDiv">
+                LIST OF UNIVERSITIES
+            </div>
+            <div id="mobileFooterDiv">
+                FOOTER TEMPLATE
+            </div> 
+        </div>
+            
+                <!--  This is the Appliy Filter Div That Pops up On The Mobile mode.   -->
+        <div class="mobileOpenApplyFiltersWrapper" id='mobileOpenApplyFiltersDiv' style='display:none'>
+            <div class="mobileInnerSearchBoxWrapper">
+                <div class="mobileRemoveSearchBox">
+                    <img src="../images/remove.svg" id='mobileApplyFiltersRemoveIcon'>
+                </div>
+                <div class="mobileSearchBoxTitles">
+                    Degree Type
+                </div>
+                <div class="mobileSearchBoxSelectWrapper degreetypeSelect">
+                    <select class="searchBoxSelect" style='font-size:14px;padding-left:14px'>
+                        <option class="searchBoxOption"> Select Degreetype</option>
+                    </select>
+                </div>
+                <div class="mobileSearchBoxTitles">
+                    Location
+                </div>
+                <div class="mobileSearchBoxSelectWrapper locationSelect">
+                    <select class="searchBoxSelect" style='font-size:14px;padding-left:14px'>
+                        <option class="searchBoxOption"> Select Location</option>
+                    </select>
+                </div>
+                <div class="mobileSearchBoxTitles">
+                    Major
+                </div>
+                <div class="mobileSearchBoxSelectWrapper majorSelect">
+                    <select class="searchBoxSelect" style='font-size:14px;padding-left:14px'>
+                        <option class="searchBoxOption"> Select Major</option>
+                    </select>
+                </div>
+                <div class="mobileSearchBoxTitles">
+                    Price
+                </div>
+                <div class="searchBoxPriceDollars flex-container" style='padding-left:15px;padding-right:30px'>
+                    <span class='dollar flex-item' style='font-size:20px'>$</span>
+                    <div class="filler flex-item"></div>
+                    <span class='dollar flex-item' style='font-size:20px'>$</span>
+                    <div class="filler flex-item"></div>
+                    <span class='dollar flex-item' style='font-size:20px'>$</span>
+                    <div class="filler flex-item"></div>
+                    <span class='dollar flex-item' style='font-size:20px'>$</span>
+                    <div class="filler flex-item"></div>
+                    <span class='dollar flex-item' style='font-size:20px'>$</span>
+                </div>
+                <span class="searchBoxPriceDollarsText low" style='margin-left:15px'>
+                    Low
+                </span>
+                <span class="searchBoxPriceDollarsText high" style='margin-right:30px'>
+                    High
+                </span>
+                <div class="searchBoxTitles filtersAppliedText" style='padding-top:42px;font-size:14px'>
+                    Filters applied
+                </div>
+                <div class="filtersApplied">
+                    <% let keys = Object.keys((myState.getFiltersApplied())) %>
+                    <% for(let i = 0; i < keys.length; i++){ %>
+                    <div class="singleAppliedFilterBox" style=<%= (i % 2 === 0) ? 'height:18px;margin-right:11px;padding-top:5px' : 'height:18px;padding-top:5px' %>>
+                    <%= myState.getFiltersApplied()[ keys[i] ] %>
+                        <img src="../images/remove.svg" class='singleAppliedFilterRemove'>
+                    </div>
+                    <%}%>
+                </div>
+            </div>
+        </div>
+    </script>
+        <!-- Mobile Structur End-->
+
+        <!-- Mobile Nav Bar Start -->
+
+    <script id='mobileNavBarTemplate' type="text/template">
+        <div class='mobileNavBarWrapper'>
+            <div class='mobileUniversityLogo pointer'>
                 University
             </div>
-            <div class='simpleNavBarButton loginNavBarButton button'>
+            <div class="mobileNavBarOptionsBox">
+                <img  id='mobileMenuIcon' src="../images/mobileNavBarOptions.svg">
+            </div>
+            <div class="mobileOpenMenu" id='mobileMenu' style='display:none'>
+                <div class='mobileUniversityLogo pointer'>
+                    University
+                </div>
+                <div class="mobileNavBarOptionsBox">
+                    <img id='mobileMenuRemoveIcon' src="../images/remove.svg" >
+                </div>
+                <div class="mobileOpenMenuButtonsWrapper">
+                    <div class='mobileMenuSingleButtonWrapper'>
+                        <span class="pointer">
+                            About
+                        </span>
+                    </div>
+                    <div class='mobileMenuSingleButtonWrapper'>          
+                        <span class="pointer">
+                            Contact Us
+                        </span>
+                    </div>
+                    <div class='mobileMenuSingleButtonWrapper'>                       
+                        <span class="mobileMenuSignUp pointer">
+                            Sign Up
+                        </span>
+                    </div>
+                    <div class='mobileMenuSingleButtonWrapper'>
+                        <span class="pointer">
+                            Login
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+        <!-- Mobile Nav Bar End -->
+
+        <!-- Mobile Single University Start -->
+
+    <script id='mobileSingleUniversityTemplate' type="text/template"> 
+        <div class='mobileSingleCardWrapper'>
+        <!-- Working -->
+            <% let circleColor = '#54df16' %>
+            <% if( locals.number <= 6 ){ circleColor = '#ff9000' } %>
+            <% if( locals.number <= 3 ){ circleColor = '#ff0040' } %>
+            <div class="mobileRatingCircleWrapper">
+                <div class="mobileRatingCircle" style= <%= ('background-color:'+circleColor ) %>>
+                    <%= locals.number %>
+                </div>
+            </div>
+            <div class="mobileUniversityNameWrapper" >
+                <span class="mobileUniversityNameText">
+                    University Name
+                </span>
+            </div>
+            <div class="mobileUniversityLocationWrapper" >
+                <span class="mobileUniversityLocationText">
+                    Location
+                </span>
+            </div>
+            <div class="mobileUniversityNumberOfReviewsWrapper" >
+                <span class="mobileUniversityNumberOfReviewsText">
+                    1900 Reviews
+                </span>
+            </div>
+            <div class="mobilePriceAndCompanyRatingWrapper">
+                <div class="mobileCardPriceWrapper">
+                    <span class="mobileCardPriceText">
+                        Price
+                    </span>
+                    <span class="mobileCardPriceDollars">
+                        $ $ $ $ $
+                    </span>
+                </div>
+                <div class="mobileCardCompanyRatingWrapper">
+                    <div>
+                        <span class="mobileCardCompanyRatingText" style='display:inline-block'>
+                            Company Rating
+                        </span>
+                    </div>
+                    <div class="mobileStartsWrapper">
+                        <span class='mobileCardStar'>
+                            <img src="../images/yellowStar.svg">
+                        </span>
+                        <span class='mobileCardStar'>
+                            <img src="../images/yellowStar.svg">
+                        </span>
+                        <span class='mobileCardStar'>
+                            <img src="../images/yellowStar.svg">
+                        </span>
+                        <span class='mobileCardStar'>
+                            <img src="../images/grayStar.svg">
+                        </span>
+                        <span class='mobileCardStar' style='padding-right:21px'>
+                            <img src="../images/grayStar.svg">
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <!-- Mobile Single University End -->
+
+    <!-- Mobile Page Tracker Bar Start -->
+
+    <script id='mobilePageTrackerTemplate' type="text/template">
+        <div class='mobilePageTrackerWrapper'>
+            <span>
+                Page
+            </span>
+            <% for( let i = 1; i <= Math.ceil(( myState.getDataLength() + 1 ) / 10 ); i++ ){ %>
+            <% if( i <= 3 || i === Math.ceil(( myState.getDataLength() + 1 ) / 10 ) ){ %>
+            <div class=<%= (i === myState.getCurrnetPage()) ? 'mobilePageTrackerCurrnetPage' : 'mobilePageTrackerSingleNumber' %>>
+                <%= i %>
+            </div>
+            <% }else if( i === 4 ){ %>
+            <div class="mobileThreeDots">...</div>
+                <% }else{}%>
+                <% } %>
+        </div>
+    </script>
+
+    <!-- Mobile Page Tracker Bar End -->
+
+    <!-- Mobile Footer Start -->
+
+    <script id='mobileFooterTemplate' type="text/template">
+        <div class='mobileFooterWrapper'>
+            <div class="mobileFooterAboutUsAndContactWrapper">
+                <span class="mobileFooterAboutUs">
+                    About Us
+                </span>
+                <span class="mobileFooterContact">
+                    Contact
+                </span>
+            </div>
+            <div class="mobileFooterIconsWrapper">
+                <img src="../images/faceBook.svg" class='mobileFooterIcon'>
+                <img src="../images/twiter.svg" class='mobileFooterIcon'>
+                <img src="../images/basketball.svg" class='mobileFooterIcon'>
+            </div>
+            <span class="mobileCopyright">
+                Copyright2017
+            </span>
+        </div>
+    </script>
+
+    <!-- Mobile Footer End -->
+
+
+
+
+
+    <!-- MOBILE End  -->
+        <!-- DESK-TOP START -->
+            <!-- DeskTop Structur Start-->
+    <script id='homeDeskTopTemplate' type="text/template">
+        <div id='navBarDiv'>
+            NAV BAR TEMPLATE
+        </div>
+        <div>
+            <img class='homePageHero' src="../images/homeHero.svg" alt="Univercity">
+        </div>
+        <div class='homePageBody flex-contaiter'>
+            <div class="searchDiv flex-item" id='searchDiv'>
+                SEARCH BOX TEMPLATE
+            </div>
+            <div class="homeResultWrapper flex-item">
+                <div id='resultBodyDiv' class="topRatedUniversitiesSearchBar">
+                    RESULT BODY TEMPLATE
+                </div>
+            </div>
+        </div>
+        <div id='footerDiv'>
+            FOOTER TEMPLATE
+        </div>
+    </script>
+            <!-- DeskTop Structur End -->
+
+
+            <!-- Nav Bar Start -->
+    <script id='navBarTemplate' type="text/template">
+        <div class='myNavBar'>
+            <div class='universityLogo myButton'>
+                University
+            </div>
+            <div class='simpleNavBarButton loginNavBarButton myButton'>
                 Login
             </div>
-            <div class='signUpNavBarButton button'>
+            <div class='signUpNavBarButton myButton'>
                 <span class='signUpNavBarButtonText'>
                         Sign Up
                     </span>
             </div>
-            <div class='simpleNavBarButton button'>
+            <div class='simpleNavBarButton myButton'>
                 Contact us
             </div>
-            <div class='simpleNavBarButton button'>
+            <div class='simpleNavBarButton myButton'>
                 About
             </div>
         </div>
     </script>
-    <!-- Nav Bar End -->
+            <!-- Nav Bar End -->
 
 
-    <!-- Search Box Template Start -->
+            <!-- Search Box Template Start -->
     <script id='searchBoxTemplate' type="text/template">
         <div class="innerSearchBoxWrapper">
             <div class="searchBoxTitles">
@@ -148,10 +455,10 @@
             </div>
         </div>
     </script>
-    <!-- Search Box Template End -->
+            <!-- Search Box Template End -->
 
 
-    <!-- Body Sratrt -->
+            <!-- Body Sratrt -->
     <script id='resultBodyTemplate' type="text/template">
         <div class="topRatedUniversitiesSearchBar">
             <div class= "topSearchBar flex-container"> 
@@ -182,20 +489,20 @@
             </div>
         </div>
     </script>
-    <!-- Body End -->
+            <!-- Body End -->
 
 
-    <!-- Single University Card Template Start ( Template That Is Used inSide a Template ) -->
+            <!-- Single University Card Template Start -->
 
     <script id='singleUniversityCardTemplate' type="text/template">
         <div class="singleUniversiryCard flex-container">
-            <% let circleColor = '#7ed321'; %>
+            <% let circleColor = '#54df16'; %>
                 <!-- Green -->
             <% if( locals.number <= 6 ){ %>
-            <% circleColor = '#ff9700'; %>
+            <% circleColor = '#ff9000'; %>
             <% } %>
             <% if( locals.number <= 3 ){ %>
-            <% circleColor = '#f1344f'; %>
+            <% circleColor = '#ff0040'; %>
             <% } %>
             <div class="ratingCircle flex-item" style=<%='background-color:' + circleColor %>>
                 <%= locals.number %>
@@ -240,11 +547,11 @@
         </div>
     </script>
 
-    <!-- Single University Card Template End -->
+            <!-- Single University Card Template End -->
 
 
-    <!--  Page Tracker Bar Template Start  -->
-    <!-- State Needed { numberOfPages: 23, currnePage: 1 }-->
+            <!--  Page Tracker Bar Template Start  -->
+            <!-- State Needed { numberOfPages: 23, currnePage: 1 }-->
 
     <script id='pageTrackerTemplate' type="text/template">
         <div class="pageTrackerWrapper">
@@ -269,10 +576,10 @@
         </div>
     </script>
 
-    <!--  Page Tracker Bar Template End  -->
+            <!--  Page Tracker Bar Template End  -->
 
 
-    <!-- Footer Start-->
+            <!-- Footer Start-->
     <script id='footerTemplate' type="text/template">
         <div class="footer">
             <div class="footerButtonsWrapper">
@@ -301,84 +608,40 @@
             </div>
         </div>
     </script>
-    <!-- Footer End-->
-
-
+            <!-- Footer End-->
+        <!-- DESK-TOP START -->
 
     <!--  TEMPLATES END  -->
 
     <script>
-        onload = ()=>{ 
+
+        window.onload = ()=>{ 
             //  Here im changing all the html in to the templates 
             _.loadHomePage();
 
             //  Here im creating the option to click and hover on 
             //  the search icon of the input because he is a backgound image.
-            let input = document.getElementById('searchInput');
-            if(input){
-                input.addEventListener('click', (e)=>{
-                    // Checking if the click is on the search background by calculating the X possition of it.
-                    const start = input.getBoundingClientRect().left; // X possition where the input starts.
-                    const click = e.pageX; // X possition the was clicked.
-                    const width = input.offsetWidth; // Width of the element.
-
-                    // Min X Possition to be on Background 
-                    const min =  start + width - 40;
-
-                    // Max X Possition to be on Background 
-                    const max =  start + width - 15;
-
-
-                    if( click >= min && click <= max ){
-                        // Do the search
-                        console.log('yesss')
-                    }
-                });
-
-                // Here Im doing the same thing I did above but on evry move of the mose on the input,
-                // isOver will be an indicator wether the mouseover was updated yet or not.
-                let isOver = false;
-                input.addEventListener('mousemove', (e)=>{
-                    const start = input.getBoundingClientRect().left;
-                    const click = e.pageX;
-                    const width = input.offsetWidth;
-                    if( click >= ( start + width - 40 ) && click <= ( start + width - 15 ) ){
-                        if(!isOver){
-                            isOver = true;
-                            input.style.cursor = "pointer";
-                        }
-                    }else{
-                        if(isOver){
-                            isOver = false;
-                            input.style.cursor = "";
-                        }
-                    }
-                })
-            }
+            _.addEventListners();
         };
+
+        window.onresize = (e)=>{
+            if( window.innerWidth <= 800 && !myState.isMobile()){
+                myState.setMobile(true);
+                _.loadHomePage();
+                _.addEventListners();
+            }else if( window.innerWidth >= 801 && myState.isMobile() ){
+                myState.setMobile(false);
+                _.loadHomePage();
+                _.addEventListners();
+            }else{}
+        }
+
     </script>
 
 </head>
 
 <body>
-    <div id='navBarDiv'>
-        NAV BAR TEMPLATE
-    </div>
-    <div>
-        <img class='homePageHero' src="../images/homeHero.svg" alt="Univercity">
-    </div>
-    <div class='homePageBody flex-contaiter'>
-        <div class="searchDiv flex-item" id='searchDiv'>
-            SEARCH BOX TEMPLATE
-        </div>
-        <div class="homeResultWrapper flex-item">
-            <div id='resultBodyDiv' class="topRatedUniversitiesSearchBar">
-                RESULT BODY TEMPLATE
-            </div>
-        </div>
-    </div>
-    <div id='footerDiv'>
-        FOOTER TEMPLATE
+    <div id="root">
     </div>
 </body>
 

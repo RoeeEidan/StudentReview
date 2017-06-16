@@ -1,0 +1,54 @@
+.mobileNavBarWrapper{
+    width: 100%;
+    height: 38px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 24px 0 rgba(0, 0, 0, 0.09);
+    filter: none;
+}
+
+.mobileUniversityLogo{
+    padding: 10px 0 9px 12px;
+    font-family: 'Berkshire Swash', cursive;
+    font-size: 15px;
+    color: #4a4a4a;
+    display: inline-block;
+}
+
+.mobileNavBarOptionsBox{
+    float: right;
+    padding:  9px 10px 0 0;
+}
+
+.mobileOpenMenu{
+    width: 100%;
+    height: 378.5px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 34px 0 rgba(0, 0, 0, 0.23);
+    position: absolute;
+    top: 0;
+}
+
+.mobileOpenMenuButtonsWrapper{
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #4a4a4a;
+    padding-top: 37px;
+}
+
+.mobileMenuSingleButtonWrapper{
+    padding: 20px 0;
+}
+
+.pointer:hover{
+    cursor: pointer;
+}
+
+.mobileMenuSignUp{
+    width: 112px;
+    padding: 8px 25px;
+    border-radius: 3px;
+    background-color: #ff304f;
+    border: solid 1px #b61c33;
+    color: white;
+}

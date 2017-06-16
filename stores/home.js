@@ -13,7 +13,7 @@ const myState = function () {
     let currnetPage = 1;
 
     // Checks if the user is on Mobile/Tablet and returs a boolian
-    const mobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    let mobile = ( window.innerWidth <= 800 ) || /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
     let filters = {};
 
@@ -25,6 +25,10 @@ const myState = function () {
 
 
     // <----- Sort By Start ----->
+
+    function getSortBy(){
+        return sortBy
+    }
 
     function isSortBy(val) {
         if ( sortBy === val ) {
@@ -137,6 +141,10 @@ const myState = function () {
 
     // <--- Search Filters Applied End  --->
 
+    function setMobile(val){
+        mobile = val;
+        return true;
+    }
 
     // <----  METHODS End  ----->
 
@@ -149,7 +157,9 @@ const myState = function () {
         getData: getData,
         isSortBy: isSortBy,
         setSortBy: setSortBy,
+        getSortBy: getSortBy,
         getDataLength: getDataLength,
+        setMobile: setMobile,
         
         // Search Filters
         getFiltersApplied: getFiltersApplied,
